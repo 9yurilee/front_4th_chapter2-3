@@ -33,10 +33,10 @@ import {
   TableRow,
   Textarea,
 } from "../shared/ui";
-import { Post, Posts } from "../entities/post/types.ts";
-import { User } from "../entities/user/types.ts";
+import { Post, Posts } from "../entities/post/model/types.ts";
+import { User } from "../entities/user/model/types.ts";
 import { Comment } from "../entities/comment/types.ts";
-import { Tags } from "../entities/tag/types.ts";
+import { Tags } from "../entities/tag/model/types.ts";
 
 const PostsManager = () => {
   const navigate = useNavigate();
@@ -280,6 +280,7 @@ const PostsManager = () => {
   // 댓글 업데이트
   const updateComment = async () => {
     try {
+      // 나중에 Put 변경~
       const response = await fetch(`/api/comments/${selectedComment.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
